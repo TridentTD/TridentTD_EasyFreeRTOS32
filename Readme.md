@@ -4,7 +4,7 @@ TridentTD_EasyFreeRTOS32 Library
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ไลบรารี่สำหรับ เขียนแบบ Multitasking แบบ TridentTD บนเพรตฟอร์ม ESP32  
 
-[!example](example.png)  
+![example](example.png)  
 
 ### วิธีการใช้งาน  
 
