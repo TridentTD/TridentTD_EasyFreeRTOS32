@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map For Ultrasound
+#######################################
+
+#######################################
+# Library (KEYWORD3)
+#######################################
+
+TridentTD_EasyFreeRTOS32	KEYWORD3
+EasyFreeRTOS32	KEYWORD3
+SETUP	KEYWORD3		RESERVED_WORD
+LOOP	KEYWORD3		RESERVED_WORD
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+#LINE	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+DELAY	KEYWORD2
+start	KEYWORD2
+stop	KEYWORD2
+resume	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+VOID	LITERAL1		RESERVED_WORD_2
