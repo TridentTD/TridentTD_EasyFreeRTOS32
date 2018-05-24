@@ -19,7 +19,7 @@ TridentTD_EasyFreeRTOS32 Library
      EasyFreeRTOS32  task1, task2, task3;
      void task1_func(void*), task2_func(void*), task3_func(void*);
 ```
-3. รูปแบบมาตรฐาน ฟังก์ชั่น ที่ task ย่อยๆ ที่จะถูกเรียกใช้งาน เป็นดังนี้  
+3. รูปแบบมาตรฐาน ฟังก์ชั่น task ย่อยๆ ที่จะถูกเรียกใช้งาน เป็นดังนี้  
 ```c
     void task1_func(void*)  {   // ฟังกชั่นที่ task1 เรียกทำงาน  - void ใช้ตัวพิมพ์เล็ก
           //----พื้นที่สำหรับประกาศตัวแปรที่ใช้ภายใน task นี้เท่านั้น----
