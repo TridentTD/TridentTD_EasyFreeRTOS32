@@ -11,10 +11,10 @@ void  task1_func(void*), task2_func(void*),       // ฟังกชั่นท
 //---------------------------------------------------------
 
 void setup(){  // setup() หลัก ใช้ตัวพิมพ์เล็ก
-	Serial.begin(115200); Serial.println();
+  Serial.begin(115200); Serial.println();
 
-	task1.start( task1_func );  // เรียก task1_func ขึ้นมาทำงาน
-	task2.start( task2_func );	// เรียก task2_func ขึ้นมาทำงาน
+  task1.start( task1_func );  // เรียก task1_func ขึ้นมาทำงาน
+  task2.start( task2_func );	// เรียก task2_func ขึ้นมาทำงาน
 }
 
 void loop(){}  // loop() หลักใช้ตัวพิมพ์เล็ก

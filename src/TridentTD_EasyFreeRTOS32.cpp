@@ -13,8 +13,8 @@ void EasyFreeRTOS32::resume() { TASK_RESUME(_task_handler); }
 void EasyFreeRTOS32::start( TaskFunction_t fn, void * const arg, const uint32_t StackDepth, uint8_t core_no) {
   String task_name = String("FreeRTOS_Task_")+ String(random(10000));
   //Serial.println(task_name);
-  //xTaskCreate( fn, task_name.c_str(),StackDepth, arg, 5, &ptr->_task_handler); 
   if(core_no>1) core_no = 1;
   xTaskCreatePinnedToCore( fn, task_name.c_str(),StackDepth, arg, 5, &ptr->_task_handler, core_no); 
+  //xTaskCreate( fn, task_name.c_str(),StackDepth, arg, 5, &ptr->_task_handler); 
 }
 

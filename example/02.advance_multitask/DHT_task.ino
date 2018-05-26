@@ -18,18 +18,17 @@
  
 #include <DHT.h>
 
-void DHT_func(void*) {         // task สอง เรียกทำงานที่นี่
+void DHT_func(void*) {
   //----พื้นที่สำหรับประกาศตัวแปรที่ใช้ภายใน task นี้เท่านั้น----
-
-  //-----------------------------------------------
   DHT dht(DHT_PIN, DHT_TYPE);
+  //-----------------------------------------------
   
-  VOID SETUP() {              // เหมือน setup() แต่ใส่ชื่อเป็น SETUP() พิมพ์ใหญ่แทน
+  VOID SETUP() {              // ภายใน task ใช้ SETUP() พิมพ์ใหญ่
     Serial.println("[DHT] task begin");
     dht.begin();
   }
 
-  VOID LOOP() {               // เหมือน loop() แต่ใส่ชื่อเป็น LOOP() พิมพ์ใหญ่แทน
+  VOID LOOP() {               // ภายใน task ใช้ LOOP() พิมพ์ใหญ่
     float t = NAN; float h = NAN;  
     while( isnan(t) || isnan(h) ) {
       t = dht.readTemperature();

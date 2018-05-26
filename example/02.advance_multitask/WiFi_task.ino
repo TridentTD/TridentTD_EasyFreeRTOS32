@@ -18,11 +18,11 @@ void WiFi_func(void*){
 
   //-----------------------------------------------
 
-  VOID SETUP(){
+  VOID SETUP(){         // ภายใน task ใช้ SETUP() พิมพ์ใหญ่
     WiFi.begin( WIFI_SSID, WIFI_PASSWORD );
   }
 
-  VOID LOOP(){
+  VOID LOOP(){         // ภายใน task ใช้ LOOP() พิมพ์ใหญ่
     if( !WiFi.isConnected() ) {
       // สั่ง Blink_task ให้ ไฟกระพริบ ถี่ ทุก 80 ms
       void *blink_delay = new int(80);  //ms
