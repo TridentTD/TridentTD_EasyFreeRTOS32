@@ -6,6 +6,10 @@
 #include <freertos/task.h>
 #include <freertos/semphr.h>
 
+#ifndef TridentOS 
+#define TridentOS  EasyFreeRTOS32
+#endif
+
 #ifndef DELAY
 #define DELAY(a) vTaskDelay((a)/portTICK_PERIOD_MS);
 #endif

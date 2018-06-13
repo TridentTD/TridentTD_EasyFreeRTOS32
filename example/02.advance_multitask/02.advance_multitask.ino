@@ -21,7 +21,7 @@
 #include <TridentTD_EasyFreeRTOS32.h>
 
 // ประกาศ ตัวแปร task และ function สำหรับ task
-EasyFreeRTOS32 DHT_task, Blink_task, WiFi_task, AsyncWebServer_task;
+TridentOS   DHT_task, Blink_task, WiFi_task, AsyncWebServer_task;
 void DHT_func(void*), Blink_func(void*), WiFi_func(void*), AsyncWebServer_func(void*);
 
 //----พื้นที่ส่วนนี้สำหรับประกาศตัวแปรที่ใช้แชร์ข้อมูลกันระหว่าง task ------
