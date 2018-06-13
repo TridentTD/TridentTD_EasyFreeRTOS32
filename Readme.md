@@ -70,7 +70,7 @@ TridentTD_EasyFreeRTOS32 Library
   
 วิธีการปรับจูนพื้นที่เม็มโมมี่ สำหรับ task นึงๆสามารถปรับได้ด้วยคำสั่งดังนี้  
 ```c
-     task1.start(task1_func, NULL, 4096);  // ขอใช้พื้นที่ขนาดเพียง 4096bytes
+     task1.start(task1_func, NULL, 4096);  // ขอใช้พื้นที่ขนาด 4096bytes
 ```
 
 
@@ -78,3 +78,4 @@ TridentTD_EasyFreeRTOS32 Library
 **TridentTD**  
 24 พฤษภาคม 2561 (ปีแห่งฤดูฝนตกชุก)  
 Version 1.0  
+
