@@ -1,5 +1,5 @@
-/*
- *****************************************************
+/*****************************************************
+ *
  * AsycWebServer_func
  *
  * task นี้จะทำหน้าที่ สร้าง WebServer แบบ Asynchronous
@@ -13,8 +13,7 @@
  *    https://github.com/me-no-dev/AsyncTCP
  *    https://github.com/me-no-dev/ESPAsyncWebServer
  *
- ***************************************************
-*/
+ ****************************************************/
 
 #include <ESPAsyncWebServer.h>
 
@@ -24,14 +23,14 @@ void AsycWebServer_func(void*) {
   //----พื้นที่สำหรับประกาศตัวแปรที่ใช้ภายใน task นี้เท่านั้น----
 
   //-----------------------------------------------
-  VOID SETUP() {
+  VOID SETUP() {                       // VOID SETUP() ใน task ใช้พิมพ์ใหญ่
     server.on("/heap", HTTP_GET, [](AsyncWebServerRequest * request) {
       request->send(200, "text/plain", String(ESP.getFreeHeap()));
     });
     
     server.on("/", HTTP_GET, [](AsyncWebServerRequest * request) {
       char buf[50];
-      sprintf(buf, "<H2>Temp  : %.2f<br>\nHumid : %.2f<br></H2>\n", DHT_temp, DHT_humid);      
+      sprintf(buf, "<H2>Temp  : %.2f<br>\nHumid : %.2f<br></H2>\n", xDHT_temp, xDHT_humid);      
       request->send(200, "text/html", String(buf));
     });
     
@@ -45,7 +44,8 @@ void AsycWebServer_func(void*) {
     server.begin();
   }
 
-  VOID LOOP() {
-    DELAY(1);
+  VOID LOOP() {                        // VOID LOOP() ใน task ใช้พิมพ์ใหญ่
+    DELAY(1);                          // DELAY(..) ใน task ใช้พิมพ์ใหญ่
   }
 }
+

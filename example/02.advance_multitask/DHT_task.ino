@@ -1,5 +1,5 @@
-/*
- ************************************************************** 
+/************************************************************** 
+ *
  *  DHT_func
  * 
  *  task นี้จะทำหน้าที่ อ่านค่าเซนเซอร์ DHT อย่างเดียว 
@@ -13,30 +13,37 @@
  *     https://github.com/adafruit/Adafruit_Sensor
  *     https://github.com/adafruit/DHT-sensor-library
  *  
- *************************************************************
- */
+ **************************************************************/
  
 #include <DHT.h>
+
+#define DHT_PIN             5           // กำหนดขา pin
+#define DHT_TYPE            DHT11       // กำหนดประเภท DHT11 หรือ DHT22
+#define DHT_INTERVAL        1000        // (ms) กำหนดช่วงเวลาที่จะเข้าไปอ่านค่า sensor ซ้ำ
+
+// Task Share Variables Info
+// xDHT_temp   : ข้อมูล อุณหภูมิ ล่าสุด สำหรับ task อื่นนำไปใช้ได้ 
+// xDHT_humid  : ข้อมูล ความชื้น ล่าสุด สำหรับ task อื่นนำไปใช้ได้ 
 
 void DHT_func(void*) {
   //----พื้นที่สำหรับประกาศตัวแปรที่ใช้ภายใน task นี้เท่านั้น----
   DHT dht(DHT_PIN, DHT_TYPE);
   //-----------------------------------------------
-  
-  VOID SETUP() {              // ภายใน task ใช้ SETUP() พิมพ์ใหญ่
+  VOID SETUP() {                       // VOID SETUP() ใน task ใช้พิมพ์ใหญ่
     Serial.println("[DHT] task begin");
     dht.begin();
   }
 
-  VOID LOOP() {               // ภายใน task ใช้ LOOP() พิมพ์ใหญ่
+  VOID LOOP() {                       // VOID LOOP() ใน task ใช้พิมพ์ใหญ่
     float t = NAN; float h = NAN;  
     while( isnan(t) || isnan(h) ) {
       t = dht.readTemperature();
       h = dht.readHumidity();
     }
-    DHT_temp = t;  DHT_humid = h;  // ค่าที่อ่านได้ถูกต้องแล้ว ค่อย copy ไปไว้ที่ ตัวแปรค่าล่าสุด
-    Serial.printf("[DHT] temp : %.2f C\thumid : %.2f %%\n", DHT_temp, DHT_humid);
+    xDHT_temp = t;  xDHT_humid = h;  // ค่าที่อ่านได้ถูกต้องแล้ว ค่อย copy ไปไว้ที่ ตัวแปรค่าล่าสุด
+    Serial.printf("[DHT] temp : %.2f C\thumid : %.2f %%\n", xDHT_temp, xDHT_humid);
     
-    DELAY(DHT_INTERVAL);      // วนรอบถัดไปที่จะอ่าน sensor อีกครั้ง
+    DELAY(DHT_INTERVAL);              // วนรอบถัดไปที่จะอ่าน sensor อีกครั้ง
   }
 }
+

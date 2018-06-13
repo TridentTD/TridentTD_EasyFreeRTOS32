@@ -1,5 +1,5 @@
-/*
- ***************************************************** 
+/***************************************************** 
+ *
  *  WiFi_func 
  *
  *  task นี้จะทำหน้าที่ เชื่อมต่อ WiFi เท่านั้น
@@ -8,25 +8,27 @@
  *  หมายเหตุ
  *  ภายใน task ให้ใช้ DELAY() ตัวพิมพ์ใหญ่ทั้งหมด
  *  
- *****************************************************
- */
+ ******************************************************/
 
 #include <WiFi.h>
+
+#define WIFI_SSID           "---------"
+#define WIFI_PASSWORD       "---------"
+#define WIFI_INTERVAL       2           // (นาที)   ช่วงเวลาที่จะเช็คสถานะไวไฟรอบถัดไป
 
 void WiFi_func(void*){  
   //----พื้นที่สำหรับประกาศตัวแปรที่ใช้ภายใน task นี้เท่านั้น----
 
   //-----------------------------------------------
 
-  VOID SETUP(){         // ภายใน task ใช้ SETUP() พิมพ์ใหญ่
+  VOID SETUP(){                       // VOID SETUP() ใน task ใช้พิมพ์ใหญ่
     WiFi.begin( WIFI_SSID, WIFI_PASSWORD );
   }
-
-  VOID LOOP(){         // ภายใน task ใช้ LOOP() พิมพ์ใหญ่
+  VOID LOOP(){                        // VOID LOOP() ใน task ใช้พิมพ์ใหญ่
     if( !WiFi.isConnected() ) {
       // สั่ง Blink_task ให้ ไฟกระพริบ ถี่ ทุก 80 ms
-      void *blink_delay = new int(80);  //ms
-      Blink_task.start( Blink_func, blink_delay);
+      xBlink_Delay = 80;  //ms
+      Blink_task.start( Blink_func );
   
       while(!WiFi.isConnected() ) DELAY(400);
       Serial.print("[WiFi] WiFi Connected, IP : ");
@@ -42,3 +44,4 @@ void WiFi_func(void*){
     DELAY( WIFI_INTERVAL *60000); // เช็คสถานะไวไฟทุกๆ กี่นาทีถัดไป
   }
 }
+
