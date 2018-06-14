@@ -12,7 +12,7 @@ TridentTD_EasyFreeRTOS32 Library
 
 1. เรียกใช้ไลบรารี่  
 ```c  
-     #include <TridentTD_EasyFreeRTOS_Ardu.h>
+     #include <TridentTD_EasyFreeRTOS32.h>
 ``` 
 2. ประกาศตัวแปร task ย่อยๆ และ ฟังกชั่น ที่ task จะเรียกขึ้นทำงาน  
 ```c  
