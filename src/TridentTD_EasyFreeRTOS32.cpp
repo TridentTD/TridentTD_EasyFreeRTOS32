@@ -18,3 +18,4 @@ void EasyFreeRTOS32::start( TaskFunction_t fn, void * const arg, const uint32_t 
   //xTaskCreate( fn, task_name.c_str(),StackDepth, arg, 5, &ptr->_task_handler); 
 }
 
+portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
