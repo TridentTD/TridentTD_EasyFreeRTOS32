@@ -26,12 +26,14 @@
 #define LOOP()     for(;;)
 #endif
 
-#ifndef NO_INTERRUPTS	
-#define NO_INTERRUPTS()     do { portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;  taskENTER_CRITICAL_ISR( &mux ) ; } while(0)	
-#endif	
-	
-#ifndef INTERRUPTS	
-#define INTERRUPTS()        do { portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;  taskEXIT_CRITICAL_ISR( &mux ) ; } while(0)	
+extern portMUX_TYPE mux;
+
+#ifndef NO_INTERRUPTS
+#define NO_INTERRUPTS()     taskENTER_CRITICAL_ISR( &mux )
+#endif
+
+#ifndef INTERRUPTS
+#define INTERRUPTS()        taskEXIT_CRITICAL_ISR( &mux )
 #endif
 
 class EasyFreeRTOS32 {
