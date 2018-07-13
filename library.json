@@ -1,17 +1,17 @@
 {
-  "name": "TridentTD_EasyFreeRTOS32",
-  "keywords": "FreeRTOS, ESP32, frameworks",
-  "description": "multitask frameworks by FreeRTOS in EASY way",
-  "homepage": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32.git"
-  },
-  "version": "1.1",
-  "authors": {
-    "name": "TridentTD",
-    "url": "https://github.com/TridentTD/"
-  },
-  "frameworks": "arduino",
-  "platforms": "esp32"
+	"name": "TridentTD_EasyFreeRTOS32",
+	"keywords": "FreeRTOS, ESP32, frameworks",
+	"description": "multitask frameworks by FreeRTOS in EASY way",
+	"homepage": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32.git"
+	},
+	"version": "1.1",
+	"authors": {
+		"name": "TridentTD",
+		"url": "https://github.com/TridentTD/"
+	},
+	"frameworks": "arduino",
+	"platforms": "esp32"
 }
