@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32.git"
+		"url": "https://github.com/TridentTD/TridentTD_EasyFreeRTOS32"
 	},
 	"version": "1.1",
 	"authors": {
