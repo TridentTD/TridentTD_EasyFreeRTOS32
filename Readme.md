@@ -77,5 +77,6 @@ TridentTD_EasyFreeRTOS32 Library
 -----
 **TridentTD**  
 24 พฤษภาคม 2561 (ปีแห่งฤดูฝนตกชุก)  
+วัน ๕᧪๗ ปีจอ  
 Version 1.0  
 
