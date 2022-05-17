@@ -36,6 +36,9 @@ extern portMUX_TYPE mux;
 #define INTERRUPTS()        taskEXIT_CRITICAL_ISR( &mux )
 #endif
 
+#define CORE0       0
+#define CORE1       1
+
 class EasyFreeRTOS32 {
 public:
   EasyFreeRTOS32() {};
