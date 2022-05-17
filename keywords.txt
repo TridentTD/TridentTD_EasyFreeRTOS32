@@ -31,3 +31,6 @@ resume	KEYWORD2
 # Constants (LITERAL1)
 #######################################
 VOID	LITERAL1		RESERVED_WORD_2
+CORE0	LITERAL1
+CORE1	LITERAL1
+
