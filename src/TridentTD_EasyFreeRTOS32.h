@@ -43,6 +43,10 @@ class EasyFreeRTOS32 {
 public:
   EasyFreeRTOS32() {};
   void start( TaskFunction_t fn, void * const arg=NULL, const uint32_t StackDepth=2048, uint8_t core_no=1);
+  inline void start( TaskFunction_t fn, uint32_t StackDepth, uint8_t core_no=1) {
+    this->start(fn, NULL, StackDepth  , core_no );
+  }
+  
   void stop();
   void resume();
     
