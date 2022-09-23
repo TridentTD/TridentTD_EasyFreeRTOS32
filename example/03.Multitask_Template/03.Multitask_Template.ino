@@ -1,6 +1,6 @@
 #include <TridentTD_EasyFreeRTOS32.h>
 
-TridentOS   task1, task2, task3, task4, task5;    // ประกาศตัวแปร task
+EasyFreeRTOS32   task1, task2, task3, task4, task5;    // ประกาศตัวแปร task
 void  task1_func(void*), task2_func(void*),       // ฟังกชั่นที่ task จะเรียกทำงาน
       task3_func(void*), task4_func(void*), task5_func(void*);
 

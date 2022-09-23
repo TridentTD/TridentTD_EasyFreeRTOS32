@@ -46,7 +46,7 @@ public:
   EasyFreeRTOS32() {};
   void start( TaskFunction_t fn, void * const arg=NULL, const uint32_t StackDepth=2048, uint8_t core_no=1);
   inline void start( TaskFunction_t fn, const uint32_t StackDepth, uint8_t core_no) 	{ start( fn, NULL, StackDepth, core_no); }
-  inline void start( uint8_t core_no, TaskFunction_t fn) 															{ start(fn, NULL, 2048, core_no)         }
+  inline void start( uint8_t core_no, TaskFunction_t fn) 															{ start( fn, NULL, 2048, core_no);       }
   inline void start( uint8_t core_no, const uint32_t StackDepth, TaskFunction_t fn )  { start( fn, NULL, StackDepth, core_no); }
 
   void stop();
