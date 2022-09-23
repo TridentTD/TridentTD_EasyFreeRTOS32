@@ -6,9 +6,13 @@
 #ifndef TASK_STOP
 #define TASK_STOP(c)    vTaskSuspend(c)
 #endif
+#ifndef TASK_DELETE
+#define TASK_DELETE(c)  vTaskDelete(c)
+#endif
 
 void EasyFreeRTOS32::stop()   { TASK_STOP(_task_handler);   }
 void EasyFreeRTOS32::resume() { TASK_RESUME(_task_handler); }
+void EasyFreeRTOS32::del()    { TASK_DELETE(_task_handler); }
 
 void EasyFreeRTOS32::start( TaskFunction_t fn, void * const arg, const uint32_t StackDepth, uint8_t core_no) {
   String task_name = String("FreeRTOS_Task_")+ String(random(10000));

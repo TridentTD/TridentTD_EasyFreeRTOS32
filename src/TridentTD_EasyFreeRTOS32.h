@@ -6,6 +6,8 @@
 #include <freertos/task.h>
 #include <freertos/semphr.h>
 
+#define EASYFREERTOS32_VERSION    1.3
+
 #ifndef TridentOS 
 #define TridentOS  EasyFreeRTOS32
 #endif
@@ -43,12 +45,11 @@ class EasyFreeRTOS32 {
 public:
   EasyFreeRTOS32() {};
   void start( TaskFunction_t fn, void * const arg=NULL, const uint32_t StackDepth=2048, uint8_t core_no=1);
-  inline void start( TaskFunction_t fn, uint32_t StackDepth, uint8_t core_no=1) {
-    this->start(fn, NULL, StackDepth  , core_no );
-  }
-  
+  inline void start( TaskFunction_t fn, const uint32_t StackDepth, uint8_t core_no) { start( fn, NULL, StackDepth, core_no); }
+
   void stop();
   void resume();
+  void del();
     
   EasyFreeRTOS32* ptr = const_cast<EasyFreeRTOS32*>(this);
 private:

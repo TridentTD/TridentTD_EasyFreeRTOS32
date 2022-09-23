@@ -26,6 +26,7 @@ DELAY	KEYWORD2
 start	KEYWORD2
 stop	KEYWORD2
 resume	KEYWORD2
+del	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
