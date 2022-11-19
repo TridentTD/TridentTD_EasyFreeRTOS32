@@ -16,7 +16,7 @@ TridentTD_EasyFreeRTOS32 Library
 ``` 
 2. ประกาศตัวแปร task ย่อยๆ และ ฟังกชั่น ที่ task จะเรียกขึ้นทำงาน  
 ```c  
-     TridentOS   task1, task2, task3;
+     EasyFreeRTOS32   task1, task2, task3;
      void task1_func(void*), task2_func(void*), task3_func(void*);
 ```
 3. รูปแบบมาตรฐาน ฟังก์ชั่น task ย่อยๆ ที่จะถูกเรียกใช้งาน เป็นดังนี้  
