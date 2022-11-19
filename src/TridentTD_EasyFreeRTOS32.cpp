@@ -10,15 +10,18 @@
 #define TASK_DELETE(c)  vTaskDelete(c)
 #endif
 
-void EasyFreeRTOS32::stop()   { TASK_STOP(_task_handler);   }
-void EasyFreeRTOS32::resume() { TASK_RESUME(_task_handler); }
-void EasyFreeRTOS32::del()    { TASK_DELETE(_task_handler); }
+void EasyFreeRTOS32::stop()   { if(_created ) TASK_STOP(_task_handler);   }
+void EasyFreeRTOS32::resume() { if(_created ) TASK_RESUME(_task_handler); }
+void EasyFreeRTOS32::del()    { if(_created ) { TASK_DELETE(_task_handler); _created= false; } }
 
 void EasyFreeRTOS32::start( TaskFunction_t fn, void * const arg, const uint32_t StackDepth, uint8_t core_no) {
+	if( _created ) this->del();
+
   String task_name = String("FreeRTOS_Task_")+ String(random(10000));
   //Serial.println(task_name);
   if(core_no>1) core_no = 1;
   xTaskCreatePinnedToCore( fn, task_name.c_str(),StackDepth, arg, 5, &ptr->_task_handler, core_no); 
+  _created = true;
   //xTaskCreate( fn, task_name.c_str(),StackDepth, arg, 5, &ptr->_task_handler); 
 }
 

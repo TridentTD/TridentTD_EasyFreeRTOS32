@@ -6,7 +6,7 @@
 #include <freertos/task.h>
 #include <freertos/semphr.h>
 
-#define EASYFREERTOS32_VERSION    1.5
+#define EASYFREERTOS32_VERSION    1.6
 
 #ifndef TridentOS 
 #define TridentOS  EasyFreeRTOS32
@@ -55,6 +55,7 @@ public:
     
   EasyFreeRTOS32* ptr = const_cast<EasyFreeRTOS32*>(this);
 private:
+  bool _created = false;
   TaskHandle_t  _task_handler;
 };
 
