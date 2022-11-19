@@ -6,7 +6,7 @@
 #include <freertos/task.h>
 #include <freertos/semphr.h>
 
-#define EASYFREERTOS32_VERSION    1.4
+#define EASYFREERTOS32_VERSION    1.5
 
 #ifndef TridentOS 
 #define TridentOS  EasyFreeRTOS32
@@ -56,6 +56,25 @@ public:
   EasyFreeRTOS32* ptr = const_cast<EasyFreeRTOS32*>(this);
 private:
   TaskHandle_t  _task_handler;
+};
+
+
+#define ISR_TYPE      true
+
+class EasyMutex {
+public:
+  EasyMutex(bool isr_type=false);
+  void create(bool isr_type=false);
+  void del();
+  bool TAKE(uint32_t prior_waken=0xFFFF);
+  void GIVE();
+
+  bool TAKE_FROM_ISR(bool task_waken=false);
+  void GIVE_FROM_ISR(bool task_waken=false);
+private:
+  QueueHandle_t _xMutex;
+  bool _isr = false;
+
 };
 
 #endif //__TRIDENTTD_EASY_FREERTOS32_H__

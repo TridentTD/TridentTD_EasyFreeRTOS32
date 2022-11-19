@@ -23,3 +23,50 @@ void EasyFreeRTOS32::start( TaskFunction_t fn, void * const arg, const uint32_t 
 }
 
 portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
+
+
+//-----------------------------------------------
+EasyMutex::EasyMutex(bool isr_type){
+  this->create(isr_type);
+}
+
+void EasyMutex::create(bool isr_type){
+  if(isr_type) {
+    _isr = true;
+    _xMutex = xSemaphoreCreateBinary();
+    Serial.println("Create Semophore Bin");
+  }else{
+    _isr = false;
+    _xMutex = xSemaphoreCreateMutex();
+  }
+}
+
+void EasyMutex::del(){
+	vSemaphoreDelete(_xMutex);
+}
+bool EasyMutex::TAKE(uint32_t prior_waken) {
+  return xSemaphoreTake(_xMutex, pdMS_TO_TICKS(prior_waken));
+}
+
+void EasyMutex::GIVE() {
+  xSemaphoreGive(_xMutex);
+}
+
+bool EasyMutex::TAKE_FROM_ISR(bool task_waken){
+  if(_isr == false) {
+    this->del();
+    this->create(true);
+  }
+  bool _task_waken = task_waken;
+  return xSemaphoreTakeFromISR(_xMutex, (BaseType_t*) &_task_waken);
+}
+
+void EasyMutex::GIVE_FROM_ISR(bool task_waken){
+  if(_isr == false) {
+    this->del();
+    this->create(true);
+  }
+
+  bool _task_waken = task_waken;
+  xSemaphoreGiveFromISR(_xMutex, (BaseType_t*) &_task_waken);
+}
