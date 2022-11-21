@@ -21,12 +21,14 @@ void setup() {
   pinMode(LED    , OUTPUT);
   pinMode(BUTTON1, INPUT_PULLUP);
   attachInterrupt(BUTTON1, [](){
+    NO_INTERRUPTS();
     isr_count1++;
     // เมื่อ Interrupt ทำงาน ตามเงื่อนไข
     // ค่อยส่ง mutex_led คืนไปให้ task อื่นๆ ที่จะใช้ ดึงไปทำงาน
     if(isr_count1 >=3){
       mutex_led.GIVE_FROM_ISR();    
     }
+    INTERRUPTS();
   }, FALLING );
   
   static EasyFreeRTOS32 task1;
