@@ -6,8 +6,8 @@
 
 #include <TridentTD_EasyFreeRTOS32.h>
 
-#define BUTTON1         16
-#define LED             22
+#define BUTTON1         16      // ต่อปุ่มกดแบบ input pullup ที่ขา 16
+#define LED             22      // ต่อ led ที่ขา 22
 #define LED_ON          LOW
 #define LED_OFF         HIGH
 
@@ -18,9 +18,11 @@ uint16_t isr_count;
 void setup() {
   Serial.begin(115200); Serial.println();
 
-  pinMode(LED    , OUTPUT);
+  pinMode(LED, OUTPUT); 
+  digitalWrite(LED, LED_OFF);
+
   pinMode(BUTTON1, INPUT_PULLUP);
-  attachInterrupt(BUTTON1, [](){
+  attachInterrupt(BUTTON1, [](){ // เมื่อปุ่มมีการกด มีสัญญาณ interrupt เข้ามา
     NO_INTERRUPTS();
     isr_count++;
     // เมื่อ Interrupt ทำงาน ตามเงื่อนไข
