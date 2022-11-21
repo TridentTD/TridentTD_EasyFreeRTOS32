@@ -22,10 +22,10 @@ void setup() {
   pinMode(BUTTON1, INPUT_PULLUP);
   attachInterrupt(BUTTON1, [](){
     NO_INTERRUPTS();
-    isr_count1++;
+    isr_count++;
     // เมื่อ Interrupt ทำงาน ตามเงื่อนไข
     // ค่อยส่ง mutex_led คืนไปให้ task อื่นๆ ที่จะใช้ ดึงไปทำงาน
-    if(isr_count1 >=3){
+    if(isr_count >=3){
       mutex_led.GIVE_FROM_ISR();    
     }
     INTERRUPTS();
@@ -38,8 +38,8 @@ void setup() {
       if( !mutex_led.TAKE()) return;  
 
       // งานที่ต้องการทำ แล้วแต่จะนำไปใช้งานต่างๆ ได้
-      if( isr_count1 > 0 ) {
-        isr_count1 = 0;        
+      if( isr_count > 0 ) {
+        isr_count = 0;        
         Serial.println("[TASK1] run after Button1 ISR occurs");
         for(int i=0; i< 3; i++){
           digitalWrite(LED, LED_ON);
@@ -57,4 +57,3 @@ void setup() {
 void loop() {
   DELAY(1);
 }
-
