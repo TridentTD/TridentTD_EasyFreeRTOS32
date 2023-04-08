@@ -52,6 +52,7 @@ public:
   inline void start( TaskFunction_t fn, const uint32_t StackDepth, uint8_t core_no) 	{ start( fn, NULL, StackDepth, core_no); }
   inline void start( uint8_t core_no, TaskFunction_t fn) 															{ start( fn, NULL, 2048, core_no);       }
   inline void start( uint8_t core_no, const uint32_t StackDepth, TaskFunction_t fn )  { start( fn, NULL, StackDepth, core_no); }
+  inline bool started()           { return _created; }
 
   void stop();
   void resume();

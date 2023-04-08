@@ -29,6 +29,7 @@ start	KEYWORD2
 stop	KEYWORD2
 resume	KEYWORD2
 del	KEYWORD2
+started	KEYWORD2
 
 # Mutex
 TAKE	KEYWORD2
