@@ -58,6 +58,7 @@ public:
   inline bool started()           { return _created; }
 
   void stop();
+  inline void pause()             { this->stop(); }
   void resume();
   void del();
     
