@@ -12,6 +12,10 @@
 #define TridentOS  EasyFreeRTOS32
 #endif
 
+#ifndef EasyTask32
+#define EasyTask32  EasyFreeRTOS32
+#endif
+
 #ifndef DELAY
 #define DELAY(a) vTaskDelay((a)/portTICK_PERIOD_MS);
 #endif
