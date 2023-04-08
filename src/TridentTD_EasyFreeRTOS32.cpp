@@ -15,7 +15,7 @@ void EasyFreeRTOS32::resume() { if(_created ) TASK_RESUME(_task_handler); }
 void EasyFreeRTOS32::del()    { if(_created ) { TASK_DELETE(_task_handler); _created= false; } }
 
 void EasyFreeRTOS32::start( TaskFunction_t fn, void * const arg, const uint32_t StackDepth, uint8_t core_no) {
-	if( _created ) return;
+	if( _created ) this->del();
 
   String task_name = String("FreeRTOS_Task_")+ String(random(10000));
   //Serial.println(task_name);
