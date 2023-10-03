@@ -6,7 +6,7 @@
 #include <freertos/task.h>
 #include <freertos/semphr.h>
 
-#define EASYFREERTOS32_VERSION    1.8
+#define EASYFREERTOS32_VERSION    1.9
 
 #ifndef TridentOS 
 #define TridentOS  EasyFreeRTOS32
